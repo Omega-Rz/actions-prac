@@ -25,8 +25,16 @@ jobs:
               run: |
                cat README.md
                cat dragon.txt
-               
+
     second_job:
+        needs: first_job
+        runs-on: ubuntu-latest
+        steps:
+        - name: sleep 
+          run: sleep 30
+
+    third_job:
+        needs: first_job
         runs-on: ubuntu-latest
         steps:
         - name: sleep 
