@@ -48,7 +48,7 @@ jobs:
             name: dragon
         - name: Read files
           run: |
-
+               echo ${{ secrets.REPOLVLSECRET }}
                cat dragon.txt       
 
     third_job:
