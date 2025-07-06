@@ -43,7 +43,7 @@ jobs:
             name: dragon
         - name: Read files
           run: |
-               cat README.md
+
                cat dragon.txt       
 
     third_job:
@@ -56,5 +56,5 @@ jobs:
             name: dragon
         - name: Read files
           run: |
-               cat README.md
+               
                cat dragon.txt  
