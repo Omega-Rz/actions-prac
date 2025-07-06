@@ -14,6 +14,7 @@ jobs:
 
             - name: List files
               run: |
+                 sudo apt-get install cowsay -y
                  ls
                  ls -ltra
 
@@ -21,4 +22,6 @@ jobs:
               run: cowsay -f dragon "Rn for cover, I am a dragon....rawr" >> dragon.txt
 
             - name: Read files
-              run: cat README.md
+              run: |
+               cat README.md
+               cat dragon.txt
