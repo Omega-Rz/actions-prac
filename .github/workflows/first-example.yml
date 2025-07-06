@@ -26,16 +26,35 @@ jobs:
                cat README.md
                cat dragon.txt
 
+            - name: upload the dragon as a artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: dragon
+                path: dragon.txt
     second_job:
         needs: first_job
         runs-on: ubuntu-latest
         steps:
         - name: sleep 
-          run: sleep 30
+          run: sleep 2
+        - name: download the dragon as a artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: dragon
+        - name: Read files
+          run: |
+               cat README.md
+               cat dragon.txt       
 
     third_job:
         needs: first_job
         runs-on: ubuntu-latest
         steps:
-        - name: sleep 
-          run: sleep 30
+        - name: download the dragon as a artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: dragon
+        - name: Read files
+          run: |
+               cat README.md
+               cat dragon.txt  
