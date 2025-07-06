@@ -1,16 +1,21 @@
 name: My First Workflow
 
 on: push
-
+env:
+  WORKFLOWLVL: WORKFLOWLVL
 jobs:
     first_job:
+        env:
+          JOBLEVEL: JOBLVL
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v4
 
             - name: Welcome
-              run: echo "Welcome to GHA Cert"
+              env: 
+                 var: WelcomeENV
+              run: echo "$var to GHA Cert $JOBLEVEL $WORKFLOWLVL"
 
             - name: List files
               run: |
